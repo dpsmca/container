@@ -1,7 +1,7 @@
 FROM ubuntu:20.04
 
-ARG prog32="/wineprefix64/drive_c/Program Files (x86)/Thermo"
-ARG prog64="/wineprefix64/drive_c/Program Files/Thermo"
+# ARG prog32="/wineprefix64/drive_c/Program Files (x86)/Thermo"
+# ARG prog64="/wineprefix64/drive_c/Program Files/Thermo"
 
 RUN apt-get update && \
     apt-get -y install unzip bzip2
@@ -10,10 +10,11 @@ ADD pwiz-bin-windows-*.tar.bz2 /wineprefix64/drive_c/pwiz
 ADD SkylineTester.zip /
 RUN mkdir -p /wineprefix64/drive_c/rawExtract
 RUN mkdir -p /wineprefix64/drive_c/msfilereader
-RUN mkdir -p ${prog32}
-RUN mkdir -p ${prog64}
+# RUN mkdir -p ${prog32}
+# RUN mkdir -p ${prog64}
 ADD RawExtract_*.tar.gz /wineprefix64/drive_c/rawExtract
-ADD thermo.tar.gz /wineprefix64/drive_c/
+# ADD thermo.tar.gz /wineprefix64/drive_c/
+ADD MSFileReader.tar.gz /wineprefix/
 # RUN unzip SkylineTester.zip && mv /SkylineTester\ Files/* /wineprefix64/drive_c/pwiz/skyline && rm -fr /wineprefix64/drive_c/pwiz/skyline/TestZipFiles
 
 
